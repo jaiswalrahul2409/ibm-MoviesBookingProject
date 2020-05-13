@@ -1,0 +1,26 @@
+blockquote {
+    margin-top: 120px;
+    margin-left: 10%;
+     width: 80%;
+ }
+ .h5{
+     width: 80%;
+     margin-left: 5%;
+ }
+ #top a{
+     font-size: 20px;
+     padding: 10px;
+     float: right;
+ }
+ #signin{
+     margin-top: 20%;
+ }
+ fieldset{
+     margin-left: 20px;
+     
+     width: 70%;
+ }
+ form button{
+     width: 80%;
+     margin-left:20px;
+ }

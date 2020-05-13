@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>Ticket</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style type="text/css">
+p {
+    margin: 2px 0px;
+  padding: 0px;
+  margin-bottom:5px;
+  line-height:28px;
+}
+a{
+  text-decoration: none;
+  color: #777;
+  padding-left: 5px;
+}
+a:hover,a:active,a:focus {
+  outline: 0;
+  text-decoration: none;
+  color: #999;
+}
+.movie-ticket{
+  max-width: 650px;
+  margin: 60px auto;
+}
+.movie-ticket .ui-item .ui-head{
+  position: relative;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+}
+.movie-ticket .ui-head .ui-trans{
+  background: #FF8C00;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  padding: 25px;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+  padding-left: 5px;
+}
+.movie-ticket .ui-head .ui-trans img{
+  max-width: 180px;
+  float: left;
+  border:1px solid rgba(255,255,255,0.3);
+  box-shadow: 0px 0px 10px 0px #000;
+  border-radius: 10%;
+}
+.movie-ticket .ui-trans .ui-details{
+  margin-left: 205px;
+  background: #f5f5f5;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  margin-bottom: 10px;
+  padding-left: 5px;  
+}
+.movie-ticket .ui-trans .ui-details h3{
+  font-size: 18px;
+  line-height:38px;
+  font-weight:300;
+}
+.movie-ticket .ui-trans .ui-details h2{
+  font-size: 28px;
+  line-height:20px;
+  font-weight: bold;
+  font-family: monospace;
+}
+.movie-ticket .ui-trans .ui-details h2 > a{
+  color: #000;
+}
+.movie-ticket .ui-trans .ui-details a.label{
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin:5px 2px;
+  display: inline-block;
+  background:rgba(0,0,0,0.3);
+}
+.movie-ticket .ui-trans .ui-details p{
+  font-size: 12px;
+  line-height: 23px;
+  color: #000;
+  margin-bottom: 5px;
+  text-align: justify;
+  padding-right: 5px;
+}
+.movie-ticket .ui-trans .ui-details h4{
+  color: #000;
+  font-size: 12px;
+  line-height: 23px;
+  margin: 0px;
+  width: 100px;
+  float: left;
+  font-weight: 600;
+}
+.movie-ticket .ui-trans .ui-details h5{
+  margin-left: 100px;
+  font-size: 12px;
+  line-height: 23px;
+  font-weight: 400;
+}
+.movie-ticket .ui-trans .ui-details h5 > a{
+  color: #000;
+}
+@media(max-width: 660px){
+  .movie-ticket .ui-trans .ui-details table > td{
+    color: #555;
+    table-layout: inherit;
+  }
+}
+</style>
+
+</head>
+<div class="movie-ticket">
+  <div class="container-fluid">   
+    <div class="ui-item">     
+      <div class="ui-head">       
+        <div class="ui-trans clearfix">       
+          <img src="../static/images/ticket.jpg" th:src="@{images/ticket.jpg}" alt="" class="img-responsive">        
+          <div class="ui-details clearfix">            
+            <h3><a href="#"></a></h3>
+            <h2><a href="#">Payment Successful!</a></h2>                     
+            
+            <table class="table table-striped">                  
+                    <tbody>
+                     <tr th:each="entry : ${parameters}">
+                        <td th:text="${entry.key} + '  : -  ' + ${entry.value}"></td>                 
+                     </tr>     
+                                  
+                    </tbody>
+            </table>
+            <a href="http://localhost:4201/ticket">
+            <input type="button" value="View Ticket" style="align:center"></a>
+          </div>
+        </div>
+      </div>       
+        
+      </div>  
+    </div>
+</div>      
+
+</html>                          

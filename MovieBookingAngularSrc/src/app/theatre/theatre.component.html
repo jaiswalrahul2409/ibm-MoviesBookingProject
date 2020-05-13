@@ -1,0 +1,224 @@
+<html>
+<head>
+</head>
+<body>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a id="admi" class="navbar-brand" href="#">Admin Console</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+
+        </span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <button id="admi" type="button" class="btn btn-dark" routerLink="/user">Users</button>
+          </li>
+          <li class="nav-item">
+            <button id="admi" type="button" class="btn btn-dark" routerLink="/movie">Movies</button>
+          </li>
+          <li class="nav-item">
+            <button id="admi" type="button" class="btn btn-secondary">Theatres</button>
+          </li>
+        </ul>
+        <form id="search" class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+
+
+  <div>
+    <button id="butons" type="button" (click)="searchForUser()" class="btn btn-secondary">List All Theatres</button>
+    <button id="butons" type="button" (click)="searchUser()" class="btn btn-secondary">Search Theatres By Id</button>
+    <button id="butons" type="button" (click)="deleteUser()" class="btn btn-secondary">Delete Theatre</button>
+    <button id="butons" type="button" (click)="createUser()" class="btn btn-secondary">Create/Update Theatre</button>
+    <!-- <button id="butons" type="button" (click)="updateuser()" class="btn btn-secondary">Update Theatre</button> -->
+
+
+
+     <!-- Create User -->
+     <div *ngIf="crea">
+      <div class="container">
+
+        <form>
+          <div class="container">
+            <div class="form-group row">
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Theatre Id</p>
+                <input type="text" name="tid" class="form-control" id="tid" placeholder="Id" [(ngModel)]="tid"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Name</p>
+                <input type="text" name="tprice" class="form-control" id="tprice" placeholder="Name" [(ngModel)]="tname"><hr>
+              </div>
+
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Screen 1 Seats</p>
+                <input type="text" name="nss1" class="form-control" id="nss1" placeholder="Seats in screen 1" [(ngModel)]="nss1"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Screen 2 Seats</p>
+                <input type="text" name="nss2" class="form-control" id="nss2" placeholder="Seats in screen 2" [(ngModel)]="nss2"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Theatre Timings</p>
+                <input type="text" name="time" class="form-control" id="time" placeholder="Timings" [(ngModel)]="time"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie 1 ID</p>
+                <input type="text" name="m1" class="form-control" id="m1" placeholder="Movie 1" [(ngModel)]="m1"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie 2 ID</p>
+                <input type="text" name="m2" class="form-control" id="m2" placeholder="Movie 2" [(ngModel)]="m2"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Location</p>
+                <input type="text" name="city" class="form-control" id="city" placeholder="City" [(ngModel)]="city"><hr>
+              </div>
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Theatre Price</p>
+                <input type="text" name="tprice" class="form-control" id="tprice" placeholder="Price" [(ngModel)]="tprice"><hr>
+              </div>
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Phone Number</p>
+                <input type="text" name="tprice" class="form-control" id="tprice" placeholder="Phone Number" [(ngModel)]="tmap"><hr>
+              </div>
+              
+              
+
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="button" class="btn btn-primary" (click)="create()">Create Theatre</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+
+
+
+
+    
+    <!-- Search for user by ID -->
+    <div *ngIf="sear">
+      <form>
+        <div class="container">
+
+        <div class="form-group row">
+          <p class="font-weight-bold" id="usr">Enter the Theatre Id to search</p>
+          <!-- <p class="font-weight-bold" id="usr">User Id</p> -->
+          <div class="col-sm-10 ">
+            <input type="text" name="searchusreid" class="form-control" id="searchuserid" placeholder="User Id" [(ngModel)]="searchuserid">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10 offset-sm-2 ">
+            <button type="button" class="btn btn-primary" (click)="searchUserId()">Search</button>
+            </div>  
+          </div>
+        </div>
+      </form>
+
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Theatre Id</th>
+              <th>No. of seats in screen 1</th>
+              <th>No. of seats in screen 2</th>
+              <th>Timings</th>
+              <th>Movie 1</th>
+              <th>Movie 2</th>
+              <th>City</th>
+              <th>Theatre Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{responseBack.theatreId}}</th>
+              <td>{{responseBack.noOfSeatsInScreen1}}</td>
+              <td>{{responseBack.noOfSeatsInScreen2}}</td>
+              <td>{{responseBack.timings}}</td>
+              <td>{{responseBack.movie1Id}}</td>
+              <td>{{responseBack.movie2Id}}</td>
+              <td>{{responseBack.city}}</td>
+              <td>{{responseBack.theatrePrice}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+
+    <!-- Delete User -->
+    <div *ngIf="del">
+      <form>
+        <div class="container">
+        <div class="form-group row">
+          <p class="font-weight-bold" id="usr">Enter the Theatre Id to Delete</p>
+          <div class="col-sm-10">
+            <input type="text" name="delusreid" class="form-control" id="deluserid" placeholder="Theatre Id" [(ngModel)]="deluserid">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10 offset-sm-2">
+            <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+
+
+
+    <!-- List all user -->
+    <div *ngIf="list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Theatre Id</th>
+          <th>Name</th>
+              <th>No. of seats in screen 1</th>
+              <th>No. of seats in screen 2</th>
+              <th>Timings</th>
+              <th>Movie 1</th>
+              <th>Movie 2</th>
+              <th>City</th>
+              <th>Theatre Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of responseBack">
+          <th scope="row">{{user.theatreId}}</th>
+          <td>{{user.name}}</td>
+              <td>{{user.noOfSeatsInScreen1}}</td>
+              <td>{{user.noOfSeatsInScreen2}}</td>
+              <td>{{user.timings}}</td>
+              <td>{{user.movie1Id}}</td>
+              <td>{{user.movie2Id}}</td>
+              <td>{{user.city}}</td>
+              <td>{{user.theatrePrice}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</body>
+</html>

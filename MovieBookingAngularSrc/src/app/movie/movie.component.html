@@ -1,0 +1,241 @@
+<html>
+<head>
+</head>
+<body>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a id="admi" class="navbar-brand" href="#">Admin Console</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+
+        </span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <!-- <a type="button" class="md-button" href="http://localhost:4200/user">Users</a> -->
+            <button id="admi" type="button" class="btn btn-dark" routerLink="/user">Users</button>
+          </li>
+          <li class="nav-item">
+            <button id="admi" type="button" class="btn btn-secondary">Movies</button>
+          </li>
+          <li class="nav-item">
+            <button id="admi" type="button" class="btn btn-dark" routerLink="/theatre">Theatres</button>
+          </li>
+        </ul>
+        <form id="search" class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+
+
+  
+  <div>
+    <button id="butons" type="button" (click)="searchForUser()" class="btn btn-secondary">List All Movies</button>
+    <button id="butons" type="button" (click)="searchUser()" class="btn btn-secondary">Search Movies By Id</button>
+    <button id="butons" type="button" (click)="deleteUser()" class="btn btn-secondary">Delete Movie</button>
+    <button id="butons" type="button" (click)="createUser()" class="btn btn-secondary">Create/Update Movie</button>
+    <!-- <button id="butons" type="button" (click)="updateuser()" class="btn btn-secondary">Update Movie</button> -->
+
+
+    <!-- Create User -->
+    <div *ngIf="crea">
+      <div class="container">
+
+        <form>
+          <div class="container">
+            <div class="form-group row">
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie Id</p>
+                <input type="text" name="mid" class="form-control" id="mid" placeholder="Id" [(ngModel)]="mid"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie Name</p>
+                <input type="text" name="mname" class="form-control" id="mname" placeholder="Name" [(ngModel)]="mname"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie ratings</p>
+                <input type="text" name="mrating" class="form-control" id="mrating" placeholder="Ratings" [(ngModel)]="mrating"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie Description</p>
+                <input type="text" name="mdesc" class="form-control" id="mdesc" placeholder="Description" [(ngModel)]="mdesc"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie Cast</p>
+                <input type="text" name="mcast" class="form-control" id="mcast" placeholder="Cast" [(ngModel)]="mcast"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie Genre</p>
+                <input type="text" name="mgenre" class="form-control" id="mgenre" placeholder="Genre" [(ngModel)]="mgenre"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie Language</p>
+                <input type="text" name="mlang" class="form-control" id="mlang" placeholder="Language" [(ngModel)]="mlang"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie Length</p>
+                <input type="text" name="mleng" class="form-control" id="mleng" placeholder="Duration" [(ngModel)]="mleng"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Movie Price</p>
+                <input type="text" name="mprice" class="form-control" id="mprice" placeholder="Movie Price" [(ngModel)]="mprice"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Banner path</p>
+                <input type="text" name="mbann" class="form-control" id="mbann" placeholder="Path to movie Banner" [(ngModel)]="mbann"><hr>
+              </div>
+              
+              <div class="col-sm-10">
+                <p class="font-weight-bold" id="usr">Poster Path</p>
+                <input type="text" name="mpost" class="form-control" id="mpost" placeholder="Path to movie Poster" [(ngModel)]="mpost"><hr>
+              </div>
+
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="button" class="btn btn-primary" (click)="create()">Create Movie</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+
+
+    
+
+    <!-- Search for user by ID -->
+    <div *ngIf="sear">
+      <form>
+        <div class="container">
+
+        <div class="form-group row">
+          <p class="font-weight-bold" id="usr">Enter the Movie Id to search</p>
+          <!-- <p class="font-weight-bold" id="usr">User Id</p> -->
+          <div class="col-sm-10 ">
+            <input type="text" name="searchusreid" class="form-control" id="searchuserid" placeholder="User Id" [(ngModel)]="searchuserid">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10 offset-sm-2 ">
+            <button type="button" class="btn btn-primary" (click)="searchUserId()">Search</button>
+          </div>
+        </div>
+        </div>
+      </form>
+
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Movie Id</th>
+              <th>Movie Name</th>
+              <th>Ratings</th>
+              <th>Description</th>
+              <th>Cast</th>
+              <th>Genre</th>
+              <th>Language</th>
+              <th>Duration</th>
+              <th>Movie Price</th>
+              <th>Movie Banner Path</th>
+              <th>Movie Poster Path</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{responseBack.movieId}}</th>
+              <td>{{responseBack.name}}</td>
+              <td>{{responseBack.ratings}}</td>
+              <td>{{responseBack.description}}</td>
+              <td>{{responseBack.cast}}</td>
+              <td>{{responseBack.genre}}</td>
+              <td>{{responseBack.language}}</td>
+              <td>{{responseBack.duration}}</td>
+              <td>{{responseBack.moviePrice}}</td>
+              <td>{{responseBack.bannerPath}}</td>
+              <td>{{responseBack.posterPath}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+
+    <!-- Delete User -->
+    <div *ngIf="del">
+      <form>
+        <div class="container">
+        <div class="form-group row">
+          <p class="font-weight-bold" id="usr">Enter the Movie Id to Delete</p>
+          <div class="col-sm-10">
+            <input type="text" name="delusreid" class="form-control" id="deluserid" placeholder="Theatre Id" [(ngModel)]="deluserid">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10 offset-sm-2">
+            <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+          </div>
+        </div>
+        </div>
+      </form>
+    </div>
+
+
+
+    <!-- List all user -->
+    <div *ngIf="list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Movie Id</th>
+              <th>Movie Name</th>
+              <th>Ratings</th>
+              <th>Description</th>
+              <th>Cast</th>
+              <th>Genre</th>
+              <th>Language</th>
+              <th>Duration</th>
+              <th>Movie Price</th>
+              <th>Movie Banner Path</th>
+              <th>Movie Poster Path</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of responseBack">
+          <th scope="row">{{user.movieId}}</th>
+              <td>{{user.name}}</td>
+              <td>{{user.ratings}}</td>
+              <td>{{user.description}}</td>
+              <td>{{user.cast}}</td>
+              <td>{{user.genre}}</td>
+              <td>{{user.language}}</td>
+              <td>{{user.duration}}</td>
+              <td>{{user.moviePrice}}</td>
+              <td>{{user.bannerPath}}</td>
+              <td>{{user.posterPath}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+
+</body>
+</html>

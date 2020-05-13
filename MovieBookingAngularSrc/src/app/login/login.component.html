@@ -1,0 +1,100 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  
+  <div class="row">
+    <div class="col-md-8 ">
+      <div class="background" style="height:700px;width:1000px">
+  
+        <div class="row" style="background-color: #2c2c4c;">
+          <img src="/assets/image/logo.png">
+        </div>
+        <div style="background-color: #2c2c4c;">
+          <img src="/assets/image/login.png" style="width: 1015px;">
+        </div>
+  
+      </div>
+    </div>
+    <div id="second" class="col-md-4" style="height: 1000px;">
+  
+  
+      <div class="h5">
+        <br><br><br>
+        <a href="#"><u>LOGIN</u></a></div><br><br>
+      <!-- <form>
+                
+                       <fieldset class="form-group"> 
+                          <label for="email">Email</label>
+                          <input required
+                           ngModel 
+                           name="email"
+                           [(ngModel)]="email"
+                          #email ="ngModel" 
+                          (change)="displayMessage(email)" 
+                          id="email" 
+                          type="text" 
+                          class="form-control" 
+                          placeholder="">
+                          <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
+                            <div *ngIf="email.errors.required">Please enter your Email</div>
+                            </div>
+                       </fieldset> 
+                       <fieldset class="form-group"> 
+                          <label for="password">Password</label>
+                          <input  required 
+                          ngModel
+                          name="password"
+                          #password="ngModel"
+                          [(ngModel)]="password"
+                          (change)="displayMessage(password)"
+                           id="password"
+                           type="password"
+                           class="form-control"
+                          placeholder="">
+                          <div class="alert alert-danger" *ngIf="!password.valid && password.touched">
+                            <div *ngIf="password.errors.required">Please enter your password</div>
+                          <div *ngIf="password.errors.minlength">Your password is weak</div> -->
+      <!-- </div>
+                       </fieldset>  
+                      <button type="button" class="btn btn-primary btn-block" (click)="login()" [disabled]="(email.value.length==0||
+  password.value.length==0)"> Login</button>
+      
+                          
+                       
+                     </form> -->
+  
+                     <form>
+                      <fieldset class="form-group">
+                        <label for="email"><span class="req">*</span>EMAIL</label>
+                        <input required type="email" 
+                        #mail="ngModel"
+                        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        name="email" class="form-control" id="email" placeholder="email"
+                        [(ngModel)]="email">
+                        <div class="alert alert-danger" *ngIf="!mail.valid && mail.touched">
+                          <div *ngIf="mail.errors.required">Please enter your email</div>
+                          <div *ngIf="mail.errors.pattern">Enter valid email address</div>
+                      </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="password"><span class="req">*</span>PASSWORD</label>
+                        <input required type="password"
+                       #pass="ngModel"
+                        name="password" class="form-control" id="password" placeholder="password"
+                        [(ngModel)]= "password">
+                        <div class="alert alert-danger" *ngIf="!pass.valid && pass.touched">
+                          <div *ngIf="pass.errors.required">Please enter your password</div>
+                          </div>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+                      </form>
+
+                      <div class="h5">
+                        <br>
+                        <a href="http://localhost:4201/register"><u>Not a user? Register.</u></a></div>
+
+                        
+
+    </div>
+  </div>

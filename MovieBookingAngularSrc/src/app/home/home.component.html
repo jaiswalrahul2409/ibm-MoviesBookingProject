@@ -1,0 +1,346 @@
+<html>
+<head>
+    <title>Movie Bookings</title>
+</head>
+<body id="bod" style="background-color: #2c2c4c;">
+
+
+    <header id="head">
+        <div class="row">
+            <!-- <div class="col-1"></div> -->
+
+            <div class="col-3">
+
+                <a href="http://localhost:4201/home"><img id="logo" src="/assets/images/logo.png"></a>
+            </div>
+            <div class="col-5 search-section">
+                <div class="input-group" id="sear">
+                    <div class="input-group-append">
+                        <input type="text" name="search" class="form-control" id="search" placeholder="Search for movies"
+                            [(ngModel)]="search" aria-label="" aria-describedby="basic-addon1">
+                        <button class="btn btn-success" type="button" (click)="searc()">Search</button>
+                    </div>
+                </div>
+                <!-- <input type="text" class="form-control mb-2 mr-sm-2" id="sear" placeholder="Search for movies or theatres"> -->
+            </div>
+            <div class="col-4">
+                <div class="btn-group dropleft" id="prof">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                    <svg fill="#e84545" height="28pt" viewBox="0 0 512 512" width="28pt"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m256 335.265625c-71.492188 0-129.65625 58.164063-129.65625 129.65625 0 4.136719.203125 8.226563.585938 12.261719 38.746093 22.699218 82.972656 34.816406 129.070312 34.816406s90.324219-12.117188 129.070312-34.816406c.382813-4.039063.585938-8.125.585938-12.261719 0-71.492187-58.164062-129.65625-129.65625-129.65625zm0 0" />
+                        <path
+                            d="m437.019531 74.980469c-48.351562-48.351563-112.636719-74.980469-181.019531-74.980469s-132.667969 26.628906-181.019531 74.980469c-48.351563 48.351562-74.980469 112.636719-74.980469 181.019531 0 68.378906 26.628906 132.667969 74.980469 181.019531 6.882812 6.886719 14.101562 13.3125 21.597656 19.300781 3.355469-62.859374 43.238281-116.175781 98.753906-139.066406-30.515625-19.894531-50.730469-54.320312-50.730469-93.386718 0-61.425782 49.972657-111.398438 111.398438-111.398438s111.398438 49.972656 111.398438 111.398438c0 39.066406-20.214844 73.492187-50.730469 93.386718 55.515625 22.890625 95.398437 76.207032 98.753906 139.066406 7.496094-5.988281 14.714844-12.417968 21.597656-19.300781 48.351563-48.351562 74.980469-112.640625 74.980469-181.019531 0-68.382812-26.628906-132.667969-74.980469-181.019531zm0 0" />
+                        <path
+                            d="m337.398438 223.867188c0-44.886719-36.515626-81.398438-81.398438-81.398438s-81.398438 36.515625-81.398438 81.398438c0 44.882812 36.515626 81.398437 81.398438 81.398437s81.398438-36.515625 81.398438-81.398437zm0 0" />
+                    </svg>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item">Hey, {{username}}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="http://localhost:4201/userprofile">View Profile</a>
+                    <a class="dropdown-item" type="button" (click)="logout()">Logout</a>
+                  </div>
+
+
+            </div>
+                <a href="http://localhost:4201/listtheatre" title="Theatres">
+                    <svg id="prof" fill="#e84545" height="28pt" viewBox="0 -13 463.5 463" width="28pt"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m0 392.222656v36.214844c0 4.417969 3.582031 8 8 8h447.5c4.417969 0 8-3.582031 8-8v-36.214844c0-4.417968-3.582031-8-8-8h-24.464844v-242.132812c0-4.417969-3.582031-8-8-8h-77.503906v-22.554688c12.335938 3.878906 24.460938 8.394532 36.328125 13.527344 4.054687 1.757812 8.765625-.109375 10.519531-4.164062l30.9375-71.476563c1.753906-4.054687-.109375-8.761719-4.164062-10.519531-119.617188-51.535156-255.183594-51.535156-374.800782 0-4.054687 1.757812-5.917968 6.464844-4.164062 10.519531l30.9375 71.492187c1.753906 4.058594 6.464844 5.921876 10.519531 4.164063 11.867188-5.132813 23.992188-9.648437 36.328125-13.527344v22.554688h-77.511718c-4.417969 0-8 3.578125-8 8v242.117187h-24.460938c-4.417969 0-8 3.582032-8 8zm329.53125-258.132812h-6.667969v-28.882813c2.226563.550781 4.449219 1.121094 6.667969 1.707031zm-172.902344 0v-32.484375c49.582032-9.984375 100.652344-9.984375 150.234375 0v32.484375zm-98.5625-83.628906c111.289063-45.640626 236.074219-45.640626 347.363282 0l-24.589844 56.800781c-13.332032-5.4375-26.953125-10.128907-40.800782-14.0625-.109374-.035157-.199218-.117188-.316406-.148438-1.160156-.332031-2.398437-.632812-3.558594-.949219-.710937-.199218-1.421874-.402343-2.132812-.574218-5.671875-1.519532-11.476562-2.980469-17.445312-4.296875-.128907-.027344-.261719 0-.402344-.039063-55.644532-12.136718-113.253906-12.136718-168.898438 0-.132812.019532-.261718 0-.402344.039063-5.972656 1.316406-11.769531 2.777343-17.445312 4.296875-.714844.191406-1.425781.375-2.132812.574218-1.175782.320313-2.402344.621094-3.5625.949219-.113282.03125-.203126.113281-.3125.148438-13.851563 3.933593-27.472657 8.625-40.800782 14.0625zm75.898438 56.453124c2.21875-.589843 4.441406-1.160156 6.667968-1.707031v28.882813h-6.667968zm-85.503906 43.175782h366.574218v234.132812h-80.835937v-140.304687h31.667969c4.417968 0 8-3.578125 8-8v-36.214844c0-4.417969-3.582032-8-8-8h-268.238282c-4.417968 0-8 3.582031-8 8v36.214844c0 4.421875 3.582032 8 8 8h31.667969v140.304687h-80.835937zm96.835937 234.132812v-140.304687h78.449219v140.304687zm180.902344-156.304687h-220.570313v-20.214844h252.238282v20.214844zm-86.453125 16h78.453125v140.304687h-78.453125zm-223.746094 156.304687h431.5v20.214844h-431.5zm0 0" />
+                        <path
+                            d="m260.546875 294.007812c-4.417969 0-8 3.582032-8 8v27.332032c0 4.417968 3.582031 8 8 8s8-3.582032 8-8v-27.332032c0-4.417968-3.582031-8-8-8zm0 0" />
+                        <path
+                            d="m202.949219 294.007812c-4.417969 0-8 3.582032-8 8v27.332032c0 4.417968 3.582031 8 8 8s8-3.582032 8-8v-27.332032c0-4.417968-3.582031-8-8-8zm0 0" />
+                        <path
+                            d="m116.777344 54.015625-2.402344-7.371094c-10.78125 3.523438-21.429688 7.558594-31.941406 12.101563l3.078125 7.121094c3.652343-1.582032 7.328125-3.097657 11.019531-4.554688l9.929688 25.199219c2.792968-1.101563 5.59375-2.167969 8.398437-3.199219l-9.246094-25.449219c3.707031-1.34375 7.429688-2.625 11.164063-3.847656zm0 0" />
+                        <path
+                            d="m143.347656 74.378906-3.5625-13.425781c4.921875-1.308594 9.867188-2.507813 14.832032-3.601563l2.976562 13.570313c2.898438-.632813 5.804688-1.230469 8.71875-1.785156l-6.566406-34.207031c-3.214844.613281-6.421875 1.273437-9.621094 1.972656l2.824219 12.882812c-5.066407 1.109375-10.121094 2.335938-15.160157 3.671875l-3.386718-12.746093c-3.175782.84375-6.339844 1.730468-9.5 2.660156l9.832031 33.421875c2.863281-.84375 5.734375-1.648438 8.613281-2.414063zm0 0" />
+                        <path
+                            d="m205.847656 63.988281-.542968-7.742187c-6.523438.460937-13.035157 1.105468-19.53125 1.933594l-.78125-6.082032c6.003906-.769531 12.023437-1.382812 18.050781-1.835937l-.582031-7.738281c-6.164063.464843-12.3125 1.089843-18.453126 1.875l-.6875-5.375c6.859376-.878907 13.738282-1.558594 20.632813-2.039063l-.546875-7.742187c-10.289062.722656-20.546875 1.878906-30.773438 3.460937l5.335938 34.425781c9.253906-1.4375 18.546875-2.484375 27.878906-3.140625zm0 0" />
+                        <path
+                            d="m225.453125 58.121094c4.765625-.054688 9.53125-.007813 14.300781.140625.644532 1.710937 1.285156 3.421875 1.914063 5.132812 3.3125.125 6.621093.296875 9.933593.515625-3.902343-11.898437-8.308593-23.71875-13.222656-35.464844-3.65625-.09375-7.316406-.128906-10.976562-.109374-5.125 11.636718-9.757813 23.371093-13.902344 35.199218 3.3125-.15625 6.625-.261718 9.941406-.320312.65625-1.699219 1.328125-3.394532 2.011719-5.09375zm7.320313-17.496094c1.492187 3.582031 2.941406 7.167969 4.347656 10.765625-2.96875-.066406-5.9375-.09375-8.902344-.085937 1.46875-3.570313 2.988281-7.132813 4.554688-10.679688zm0 0" />
+                        <path
+                            d="m265.894531 65.171875c2.933594.324219 5.867188.683594 8.800781 1.082031l3.675782-26.832031c3.855468.535156 7.699218 1.125 11.539062 1.769531l1.300782-7.648437c-11.085938-1.882813-22.222657-3.253907-33.417969-4.121094l-.601563 7.738281c3.890625.300782 7.777344.664063 11.660156 1.089844zm0 0" />
+                        <path
+                            d="m324.695312 68.957031c-6.339843-1.839843-12.710937-3.488281-19.125-4.953125l1.367188-6c5.925781 1.351563 11.820312 2.859375 17.6875 4.527344l2.117188-7.464844c-5.996094-1.703125-12.023438-3.246094-18.082032-4.625l1.199219-5.292968c6.769531 1.546874 13.507813 3.289062 20.203125 5.226562l2.160156-7.453125c-10-2.898437-20.082031-5.363281-30.246094-7.398437l-6.835937 34.179687c9.199219 1.847656 18.332031 4.082031 27.394531 6.703125zm0 0" />
+                        <path
+                            d="m344.949219 72.171875c1.429687.507813 2.859375 1.027344 4.285156 1.550781 1.304687 4.359375 2.519531 8.714844 3.644531 13.074219 3.167969 1.257813 6.324219 2.566406 9.460938 3.921875-1.101563-4.824219-2.308594-9.648438-3.628906-14.480469 4.96875.371094 9.636718-2.410156 11.671874-6.953125 2.820313-6.449218-1.121093-13.558594-9.367187-16.703125-5.773437-2.199219-11.585937-4.253906-17.445313-6.152343l-10.761718 33.128906c2.839844.925781 5.671875 1.886718 8.496094 2.890625zm5.355469-15.101563c2.355468.835938 4.699218 1.695313 7.039062 2.582032 3.140625 1.199218 4.769531 3.597656 3.863281 5.84375-.902343 2.242187-3.675781 2.898437-6.734375 1.738281-2.289062-.867187-4.582031-1.707031-6.882812-2.523437zm0 0" />
+                    </svg>
+                </a>
+                <a href="http://localhost:4201/listmovies" title="Movies">
+                    <svg id="prof" fill="#e84545" height="28pt" viewBox="0 0 192 192" width="28pt"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m192 96c0-53.019531-42.980469-96-96-96s-96 42.980469-96 96 42.980469 96 96 96h96v-16h-43c26.839844-17.769531 42.988281-47.808594 43-80zm-48.976562 64.722656c-10.722657 7.789063-25.734376 5.414063-33.523438-5.3125-7.789062-10.722656-5.414062-25.730468 5.308594-33.523437 10.726562-7.789063 25.734375-5.414063 33.523437 5.3125 7.792969 10.722656 5.414063 25.730469-5.308593 33.523437zm-1.179688-104.851562c12.605469-4.097656 26.144531 2.800781 30.242188 15.40625 4.09375 12.609375-2.804688 26.148437-15.410157 30.242187-12.605469 4.097657-26.144531-2.800781-30.242187-15.40625-4.09375-12.605469 2.804687-26.148437 15.410156-30.242187zm-45.84375-39.871094c13.253906 0 24 10.746094 24 24s-10.746094 24-24 24-24-10.746094-24-24 10.746094-24 24-24zm-76.085938 55.277344c4.097657-12.605469 17.636719-19.503906 30.242188-15.410156 12.605469 4.097656 19.503906 17.636718 15.410156 30.242187-4.097656 12.605469-17.636718 19.503906-30.242187 15.410156s-19.503907-17.632812-15.410157-30.242187zm62.585938 84.132812c-7.789062 10.726563-22.800781 13.101563-33.523438 5.3125-10.722656-7.792968-13.101562-22.800781-5.308593-33.523437 7.789062-10.722657 22.800781-13.101563 33.523437-5.308594 10.722656 7.789063 13.097656 22.796875 5.308594 33.519531zm5.5-59.410156c0-4.417969 3.582031-8 8-8s8 3.582031 8 8-3.582031 8-8 8-8-3.582031-8-8zm0 0" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <hr style="height: 1px; color: #e84545; background-color: #e84545; border: none;">
+    </header>
+
+
+
+
+    <div class="row">
+        <!-- Carousel -->
+        <div class="container" style="width: 1080px;">
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:100%;">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+
+                    <div class="item active">
+                        <a role="button" (click)="moviedetails(4)">
+                            <img src="{{responseBack1[3].bannerPath}}" alt="New York"
+                                style="width:100%; height: 550px;">
+                            <div class="carousel-caption">
+                                <h3>Avengers: Infinity War</h3>
+
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="item">
+                        <a role="button" (click)="moviedetails(5)">
+                            <img src="{{responseBack1[4].bannerPath}}" alt="Endgame"
+                                style="width:100%; height: 550px;">
+                            <div class="carousel-caption">
+                                <h3>Avengers EndGame</h3>
+
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="item">
+                        <a role="button" (click)="moviedetails(10)">
+                            <img src="{{responseBack1[9].bannerPath}}" alt="KGF" style="width:100%; height: 550px;">
+                            <div class="carousel-caption">
+                                <h3>K.G.F</h3>
+
+                            </div>
+                        </a>
+                    </div>
+
+
+
+                    <div class="item">
+                        <a role="button" (click)="moviedetails(11)">
+                            <img src="{{responseBack1[10].bannerPath}}" alt="New York"
+                                style="width:100%; height: 550px;">
+                            <div class="carousel-caption">
+                                <h3>Black Panther</h3>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+
+
+
+    <!-- content -->
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-2">
+            <div class="card">
+                <ul class="list-group list-group-flush" style=" margin: 0px;">
+                    <li class="list-group-item" style="background-color: #2c2c4c;">
+                        <h2 style="color: #e84545;">Top Movies</h2>
+                    </li>
+                </ul>
+                <ul class="list-group list-group-flush" style=" margin: 0px;">
+                    <li class="list-group-item" style="background-color: #2c2c4c;">
+                        <h4 style="color: #e84545;">The Usual Suspects</h4>
+                    </li>
+                </ul>
+                <ul class="list-group list-group-flush" style=" margin: 0px;">
+                    <li class="list-group-item" style="background-color: #2c2c4c;">
+                        <h4 style="color: #e84545;">Inception</h4>
+                    </li>
+                </ul>
+                <ul class="list-group list-group-flush" style=" margin: 0px;">
+                    <li class="list-group-item" style="background-color: #2c2c4c;">
+                        <h4 style="color: #e84545;">Mr Nobody</h4>
+                    </li>
+                </ul>
+                <ul class="list-group list-group-flush" style=" margin: 0px;">
+                    <li class="list-group-item" style="background-color: #2c2c4c;">
+                        <h4 style="color: #e84545;">Shutter Island</h4>
+                    </li>
+                </ul>
+                <ul class="list-group list-group-flush" style=" margin: 0px;">
+                    <li class="list-group-item" style="background-color: #2c2c4c;">
+                        <h4 style="color: #e84545;">Predestination</h4>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="col-8">
+            <div class="row">
+
+                <h2 style="color: #e84545;">Movies In English</h2><br>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <a role="button" (click)="moviedetails(2)">
+                            <div class="card" id="car" style="width: 22rem; background-color: rgb(0, 0, 0);">
+                                <img class="card-img-top" id="cardimg" src="{{responseBack1[1].posterPath}}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="lead font-weight-bolder" style="color: #e84545;">
+                                        Predestination
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a role="button" (click)="moviedetails(1)">
+                            <div class="card" id="car" style="width: 22rem; background-color: rgb(0, 0, 0);">
+                                <img class="card-img-top" id="cardimg" src="{{responseBack1[0].posterPath}}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="lead font-weight-bolder" style="color: #e84545;">
+                                        Shutter Island
+                                    </p>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a role="button" (click)="moviedetails(4)">
+                            <div class="card" id="car" style="width: 22rem; background-color: rgb(0, 0, 0);">
+                                <img class="card-img-top" id="cardimg" src="{{responseBack1[3].posterPath}}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="lead font-weight-bolder" style="color: #e84545;">
+                                        Avengers: InfinityWar
+                                    </p>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a role="button" (click)="moviedetails(5)">
+                            <div class="card" id="car" style="width: 22rem; background-color: rgb(0, 0, 0);">
+                                <img class="card-img-top" id="cardimg" src="{{responseBack1[4].posterPath}}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="lead font-weight-bolder" style="color: #e84545;">
+                                        Avengers: EndGame
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+
+                <h2 style="color: #e84545;">Movies In Kannada</h2><br>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <a role="button" (click)="moviedetails(6)">
+                            <div class="card" id="car" style="width: 22rem; background-color: rgb(0, 0, 0);">
+                                <img class="card-img-top" id="cardimg" src="{{responseBack1[5].posterPath}}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="lead font-weight-bolder" style="color: #e84545;">
+                                        Dia
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a role="button" (click)="moviedetails(7)">
+                            <div class="card" id="car" style="width: 22rem; background-color: rgb(0, 0, 0);">
+                                <img class="card-img-top" id="cardimg" src="{{responseBack1[6].posterPath}}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="lead font-weight-bolder" style="color: #e84545;">
+                                        Kirik Party
+                                    </p>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a role="button" (click)="moviedetails(8)">
+                        <div class="card" id="car" style="width: 22rem; background-color: rgb(0, 0, 0);">
+                            <img class="card-img-top" id="cardimg" src="{{responseBack1[7].posterPath}}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p class="lead font-weight-bolder" style="color: #e84545;">
+                                    Love Mocktail
+                                </p>
+
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a role="button" (click)="moviedetails(9)">
+                        <div class="card" id="car" style="width: 22rem; background-color: rgb(0, 0, 0);">
+                            <img class="card-img-top" id="cardimg" src="{{responseBack1[9].posterPath}}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p class="lead font-weight-bolder" style="color: #e84545;">
+                                    Malgudi Days
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+
+    </div>
+
+
+
+
+</body>
+
+</html>

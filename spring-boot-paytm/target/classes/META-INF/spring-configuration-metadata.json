@@ -1,0 +1,47 @@
+{
+  "groups": [
+    {
+      "name": "paytm.payment.sandbox",
+      "type": "com.ibm.spring.paytm.api.PaytmDetails",
+      "sourceType": "com.ibm.spring.paytm.api.PaytmDetails"
+    }
+  ],
+  "properties": [
+    {
+      "name": "paytm.payment.sandbox.channel-id",
+      "type": "java.lang.String",
+      "sourceType": "com.ibm.spring.paytm.api.PaytmDetails"
+    },
+    {
+      "name": "paytm.payment.sandbox.details",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.ibm.spring.paytm.api.PaytmDetails"
+    },
+    {
+      "name": "paytm.payment.sandbox.industry-type-id",
+      "type": "java.lang.String",
+      "sourceType": "com.ibm.spring.paytm.api.PaytmDetails"
+    },
+    {
+      "name": "paytm.payment.sandbox.merchant-id",
+      "type": "java.lang.String",
+      "sourceType": "com.ibm.spring.paytm.api.PaytmDetails"
+    },
+    {
+      "name": "paytm.payment.sandbox.merchant-key",
+      "type": "java.lang.String",
+      "sourceType": "com.ibm.spring.paytm.api.PaytmDetails"
+    },
+    {
+      "name": "paytm.payment.sandbox.paytm-url",
+      "type": "java.lang.String",
+      "sourceType": "com.ibm.spring.paytm.api.PaytmDetails"
+    },
+    {
+      "name": "paytm.payment.sandbox.website",
+      "type": "java.lang.String",
+      "sourceType": "com.ibm.spring.paytm.api.PaytmDetails"
+    }
+  ],
+  "hints": []
+}

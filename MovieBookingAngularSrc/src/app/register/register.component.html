@@ -1,0 +1,109 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+
+<div class="row">
+    <!-- <div class="col-md-8 text-center" style=" background-color:rgb(238, 217, 224);height: 1000px;"> -->
+    <div class="col-md-8 ">
+        <div class="row" style="background-color: #2c2c4c;">
+            <img src="/assets/image/logo.png">
+        </div>
+        <div style="background-color: #2c2c4c;">
+            <img src="/assets/image/login.png" style="width: 1017px;">
+        </div>
+    </div>
+
+    <div id="second" class="col-md-4" style="height: 1000px;">
+        <div id="top">
+            <a href="/register">Register</a><br><br>
+
+
+
+            <form>
+                <fieldset class="form-group">
+                    <label for="firstName"><span class="req">* </span> FIRSTNAME </label>
+                    <input required type="text" placeholder="ex: John" [(ngModel)]="firstName" name="firstName" id="firstName"
+                        class="form-control " maxlength="20" #firstNameController="ngModel">
+                    <div class="alert alert-danger" *ngIf="!firstNameController.valid && firstNameController.touched">
+                        <div *ngIf="firstNameController.errors.required">Please enter your first name</div>
+
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="lastName"><span class="req">*</span>LAST NAME</label>
+                    <input required type="text" placeholder="ex: Wick" name="lastName" class="form-control" id="lastName" 
+                        [(ngModel)]="lastName" #lastNameController="ngModel">
+                    <div class="alert alert-danger" *ngIf="!lastNameController.valid && lastNameController.touched">
+                        <div *ngIf="lastNameController.errors.required">Please enter your last name</div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="phoneNumber"><span class="req">*</span>PHONE NUMBER</label>
+                    <input required type="number" placeholder="ex: 1234567890" name="phoneNumber" class="form-control phone" id="phoneNumber"
+                         minlength="8" maxlength="10" [(ngModel)]="phoneNumber" #phone="ngModel"
+                        pattern="^((\\+91-?)|0)?[0-9]{8,10}$">
+                    <div class="alert alert-danger" *ngIf="!phone.valid && phone.touched">
+                        <div *ngIf="phone.errors.required">Please enter your phone Number</div>
+                        <div *ngIf="phone.errors.pattern">Please enter correct number</div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="gender"><span class="req">*</span>GENDER</label><br>
+
+                    <label class="radio-inline">
+                        <input required type="radio" #gen="ngModel" value="male" name="gender" [(ngModel)]="gender">
+                        Male
+                    </label><br>
+                    <label class="radio-inline">
+                        <input required type="radio" #gen="ngModel" value="female" name="gender" [(ngModel)]="gender">
+                        Female
+                    </label>
+                    <div class="alert alert-danger" *ngIf="!gen.valid && gen.touched">
+                        <div *ngIf="gen.errors.required">Please select your gender</div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="city"><span class="req">*</span>CITY</label>
+                    <input required type="text" #cit="ngModel" name="city" placeholder="ex: Bangalore" class="form-control" id="city"
+                        [(ngModel)]="city">
+                    <div class="alert alert-danger" *ngIf="!cit.valid && cit.touched">
+                        <div *ngIf="cit.errors.required">Please enter your city</div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="email"><span class="req">*</span>EMAIL</label>
+                    <input required type="email" #mail="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        name="email" class="form-control" id="email" placeholder="johnwick@abcmail.com" [(ngModel)]="email">
+                    <div class="alert alert-danger" *ngIf="!mail.valid && mail.touched">
+                        <div *ngIf="mail.errors.required">Please enter your email</div>
+                        <div *ngIf="mail.errors.pattern">Enter valid email address</div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="password"><span class="req">*</span>PASSWORD</label>
+                    <input required type="password" #pass="ngModel" name="password" class="form-control" id="password"
+                        placeholder="******" [(ngModel)]="password">
+                    <div class="alert alert-danger" *ngIf="!pass.valid && pass.touched">
+                        <div *ngIf="pass.errors.required">Please enter your password</div>
+                    </div>
+                </fieldset>
+                <button type="button" class="btn btn-primary form-group" (click)="register()">REGISTER</button>
+            </form>
+
+
+            <div style="text-align: center;">
+                <br>
+                <a href="http://localhost:4201/login" style="font-size: 15px;"><u>Already a user? Login.</u></a></div>
+        </div>
+    </div>

@@ -1,0 +1,251 @@
+<html>
+
+<head>
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a id="admi" class="navbar-brand" href="#">Admin Console</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+
+        </span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <button id="admi" type="button" class="btn btn-secondary">Users</button>
+          </li>
+          <li class="nav-item">
+            <button id="admi" type="button" class="btn btn-dark" routerLink="/movie">Movies</button>
+          </li>
+          <li class="nav-item">
+            <button id="admi" type="button" class="btn btn-dark" routerLink="/theatre">Theatres</button>
+          </li>
+        </ul>
+        <form id="search" class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+        </form>
+      </div>
+    
+    </nav>
+  </div>
+
+  <div>
+    <button id="butons" type="button" (click)="searchForUser()" class="btn btn-secondary">List All Users</button>
+    <button id="butons" type="button" (click)="createUser()" class="btn btn-secondary">Create User</button>
+    <button id="butons" type="button" (click)="searchUser()" class="btn btn-secondary">Update User</button>
+    <button id="butons" type="button" (click)="deleteUser()" class="btn btn-secondary">Delete User</button>
+
+    <!-- <button id="butons" type="button" (click)="updateuser()" class="btn btn-secondary">Update user</button> -->
+
+
+    <!-- Create User -->
+    <div *ngIf="crea">
+      <div class="container">
+
+        <form>
+          <div class="container">
+            <div class="form-group row">
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">First Name</p>
+                <input type="text" name="fname" class="form-control" id="fname" placeholder="First Name"
+                  [(ngModel)]="fname">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">Last Name</p>
+                <input type="text" name="lname" class="form-control" id="lname" placeholder="Last Name"
+                  [(ngModel)]="lname">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">User Email Id</p>
+                <input type="text" name="uemail" class="form-control" id="uemail" placeholder="Email"
+                  [(ngModel)]="uemail">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">Password</p>
+                <input type="password" name="upass" class="form-control" id="upass" placeholder="Password"
+                  [(ngModel)]="upass">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">Phone Number</p>
+                <input type="text" name="unum" class="form-control" id="unum" placeholder="Phone No."
+                  [(ngModel)]="unum">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">User Gender</p>
+                <input type="text" name="ugend" class="form-control" id="ugend" placeholder="Language"
+                  [(ngModel)]="ugend">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">User City</p>
+                <input type="text" name="ucity" class="form-control" id="ucity" placeholder="Location"
+                  [(ngModel)]="ucity">
+                <hr>
+              </div>
+
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="button" class="btn btn-primary" (click)="create()">Create</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div> 
+    </div>
+
+
+
+    <!-- Update User -->
+    <div *ngIf="sear">
+      <div class="container">
+
+        <form>
+          <div class="container">
+            <div class="form-group row">
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">User Id</p>
+                <input type="text" name="userid" class="form-control" id="userid" placeholder="User Id"
+                  [(ngModel)]="userid">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">First Name</p>
+                <input type="text" name="fname" class="form-control" id="fname" placeholder="First Name"
+                  [(ngModel)]="fname">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">Last Name</p>
+                <input type="text" name="lname" class="form-control" id="lname" placeholder="Last Name"
+                  [(ngModel)]="lname">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">User Email Id</p>
+                <input type="text" name="uemail" class="form-control" id="uemail" placeholder="Email"
+                  [(ngModel)]="uemail">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">Password</p>
+                <input type="password" name="upass" class="form-control" id="upass" placeholder="Password"
+                  [(ngModel)]="upass">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">Phone Number</p>
+                <input type="text" name="unum" class="form-control" id="unum" placeholder="Phone No."
+                  [(ngModel)]="unum">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">User Gender</p>
+                <input type="text" name="ugend" class="form-control" id="ugend" placeholder="Language"
+                  [(ngModel)]="ugend">
+                <hr>
+              </div>
+
+              <div class="col-sm-10 ">
+                <p class="font-weight-bold" id="usr">User City</p>
+                <input type="text" name="ucity" class="form-control" id="ucity" placeholder="Location"
+                  [(ngModel)]="ucity">
+                <hr>
+              </div>
+
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="button" class="btn btn-primary" (click)="update()">Update</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+    <!-- Delete User -->
+    <div *ngIf="del">
+      <form>
+        <div class="container">
+          <div class="form-group row">
+            <p class="font-weight-bold" id="usr">Enter the User Id to Delete</p>
+            <div class="col-sm-10">
+              <input type="text" name="delusreid" class="form-control" id="deluserid" placeholder="User Id"
+                [(ngModel)]="deluserid">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-10 offset-sm-2">
+              <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+
+    <!-- List all user -->
+    <div *ngIf="list">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>User Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Id</th>
+            <th>Password</th>
+            <th>Phone number</th>
+
+            <th>Gender</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of responseBack">
+            <th scope="row">{{user.userId}}</th>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.phoneNumber}}</td>
+
+            <td>{{user.gender}}</td>
+            <td>{{user.city}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
